@@ -1,0 +1,47 @@
+import { AuthorizationLevel, AuthorizationLevelIdentifier, VerificationKeyAuthorizationLevel } from './authorization.js';
+import { Field } from '../../provable/field.js';
+import * as BindingsLayout from '../../../bindings/mina-transaction/gen/v2/js-layout.js';
+export type PermissionsDescription = {
+    editState: AuthorizationLevelIdentifier | AuthorizationLevel;
+    access: AuthorizationLevelIdentifier | AuthorizationLevel;
+    send: AuthorizationLevelIdentifier | AuthorizationLevel;
+    receive: AuthorizationLevelIdentifier | AuthorizationLevel;
+    setDelegate: AuthorizationLevelIdentifier | AuthorizationLevel;
+    setPermissions: AuthorizationLevelIdentifier | AuthorizationLevel;
+    setVerificationKey: AuthorizationLevelIdentifier | AuthorizationLevel | VerificationKeyAuthorizationLevel;
+    setZkappUri: AuthorizationLevelIdentifier | AuthorizationLevel;
+    editActionState: AuthorizationLevelIdentifier | AuthorizationLevel;
+    setTokenSymbol: AuthorizationLevelIdentifier | AuthorizationLevel;
+    incrementNonce: AuthorizationLevelIdentifier | AuthorizationLevel;
+    setVotingFor: AuthorizationLevelIdentifier | AuthorizationLevel;
+    setTiming: AuthorizationLevelIdentifier | AuthorizationLevel;
+};
+export declare class Permissions {
+    editState: AuthorizationLevel;
+    access: AuthorizationLevel;
+    send: AuthorizationLevel;
+    receive: AuthorizationLevel;
+    setDelegate: AuthorizationLevel;
+    setPermissions: AuthorizationLevel;
+    setVerificationKey: VerificationKeyAuthorizationLevel;
+    setZkappUri: AuthorizationLevel;
+    editActionState: AuthorizationLevel;
+    setTokenSymbol: AuthorizationLevel;
+    incrementNonce: AuthorizationLevel;
+    setVotingFor: AuthorizationLevel;
+    setTiming: AuthorizationLevel;
+    constructor(descr: PermissionsDescription);
+    toJSON(): any;
+    static defaults(): Permissions;
+    static empty(): Permissions;
+    static sizeInFields(): number;
+    static toJSON(p: Permissions): any;
+    static toFields(p: Permissions): Field[];
+    static fromFields(fields: Field[], aux: any[]): Permissions;
+    static toAuxiliary(x?: Permissions): any[];
+    static toValue(x: Permissions): Permissions;
+    static fromValue(x: Permissions): Permissions;
+    static check(_x: Permissions): void;
+    static fromInternalRepr(x: BindingsLayout.Permissions): Permissions;
+    static from(x: PermissionsDescription | Permissions): Permissions;
+}
